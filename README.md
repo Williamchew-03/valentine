@@ -104,9 +104,7 @@ button {
 <h1>Would you be my Valentine? 💖</h1>
 
 <div class="photo">
-  <img src="her.jpg" alt="Her Photo">![index html](https://github.com/user-attachments/assets/5ed4d816-d4cc-425b-ba10-9d95ddb1eba5)
-![Uploading her.jpeg.jpeg…]()
-
+  <img src="her.jpg" alt="Her Photo">
 </div>
 
 <div class="buttons">
