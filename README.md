@@ -1,1 +1,161 @@
-# valentine
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Would you be my Valentine?</title>
+
+<style>
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background: radial-gradient(circle at top, #ff9a9e, #fad0c4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+.photo {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid white;
+  box-shadow: 0 0 20px rgba(255,255,255,0.8);
+  margin-bottom: 30px;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.buttons {
+  position: relative;
+  width: 420px;
+  height: 200px;
+}
+
+button {
+  position: absolute;
+  padding: 15px 35px;
+  font-size: 26px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.yes-button {
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff4d6d;
+  color: white;
+}
+
+.no-button {
+  left: 65%;
+  top: 90px;
+  background: #666;
+  color: white;
+}
+
+.result {
+  display: none;
+  color: white;
+  font-size: 34px;
+  text-align: center;
+  margin-top: 40px;
+  animation: pop 1s ease;![her jpeg](https://github.com/user-attachments/assets/787363e6-3452-4e0f-ba96-015faa94fc3e)
+
+}
+
+@keyframes pop {
+  0% { transform: scale(0.4); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 24px;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Would you be my Valentine? 💖</h1>
+
+<div class="photo">
+  <img src="her.jpg" alt="Her Photo">![index html](https://github.com/user-attachments/assets/5ed4d816-d4cc-425b-ba10-9d95ddb1eba5)
+![Uploading her.jpeg.jpeg…]()
+
+</div>
+
+<div class="buttons">
+  <button class="yes-button" onclick="sayYes()">Yes</button>
+  <button class="no-button" onmouseover="runAway()">No</button>
+</div>
+
+<div class="result" id="result">
+  💕 I knew you would say yes 💕<br>
+  See you on Feb 14th ❤️
+</div>
+
+<script>
+let yesScale = 1;
+
+function runAway() {
+  const noBtn = document.querySelector(".no-button");
+  const yesBtn = document.querySelector(".yes-button");
+
+  const x = Math.random() * 320;
+  const y = Math.random() * 140;
+
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+
+  yesScale += 0.15;
+  yesBtn.style.transform = `translateX(-50%) scale(${yesScale})`;
+}
+
+function sayYes() {
+  document.querySelector(".buttons").style.display = "none";
+  document.getElementById("result").style.display = "block";
+
+  for (let i = 0; i < 30; i++) {
+    createHeart();
+  }
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}
+</script>
+
+</body>
+</html>
